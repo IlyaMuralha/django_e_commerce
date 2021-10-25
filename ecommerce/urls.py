@@ -3,11 +3,9 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from shopapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('<slug:category_slug>', views.home, name='products_by_category'),
     path('', include('shopapp.urls')),
 ]
 
