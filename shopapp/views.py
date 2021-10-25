@@ -20,5 +20,7 @@ def product(request, category_slug, product_slug):
         raise e
     return render(request, 'shopapp/product.html', {'product': product})
 
-def cart(request):
+
+def _cart_id(request):
+    cart = request.session.session_key
     return render(request, 'shopapp/cart.html')
