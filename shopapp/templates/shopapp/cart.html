@@ -1,0 +1,85 @@
+{% extends 'shopapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Basket</title>
+{% endblock %}
+
+{% block content %}
+    <div class="text-center">
+        <br>
+        <div class="text-center text-uppercase fs-2 fw-normal lh-lg">
+            Shopping Cart
+        </div>
+    </div>
+    <div class="row mx-auto">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table cart-table">
+                <thead class="text-uppercase fs-5 fw-lighter">
+                <tr>
+                    <th colspan="4">
+                        Your Items
+                    </th>
+                </tr>
+                </thead>
+                {% for i in '123' %}
+                    <tr>
+                        <td>
+                            <a href="">
+                                <img src="{% static 'images/teddy.png' %}" width="100" alt="">
+                            </a>
+                        </td>
+                        <td class="text-start">
+                            Teddy
+                            <br>
+                            SKU: 7
+                            <br>
+                            Unit Price: 20
+                            <br>
+                            Quantity: 3 x 20
+                        </td>
+                        <td>
+                            60
+                        </td>
+                        <td>
+                            <a href=""><i class="material-icons md-18 text-success">add_circle_outline</i></a>
+                            <a href=""><i class="material-icons md-18 text-success">remove_circle_outline</i></a>
+                            <a href=""><i class="material-icons md-18 text-success">remove_shopping_cart</i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+            <table class="table cart-table">
+                <thead class="cart-thead text-uppercase fs-5 fw-lighter">
+                <tr>
+                    <th colspan="4">
+                        Check Out
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        Please check your cart before payment
+                    </td>
+                </tr>
+                <tr class="text-start">
+                    <td>
+                        Your total bill is: <strong>180</strong>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="mx-auto">
+                <a href="">
+                    <button type="button" class="btn btn-lg btn-block bg-dark text-white">
+                        Back To Products
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
