@@ -59,13 +59,15 @@
                                             class="material-icons md-18 text-success">add_circle_outline</i></a>
                                     <a href="{% url 'remove_cart' cart_item.product.id %}"><i
                                             class="material-icons md-18 text-success">remove_circle_outline</i></a>
-                                    <a href=""><i class="material-icons md-18 text-success">remove_shopping_cart</i></a>
+                                    <a href="{% url 'remove_product' cart_item.product.id %}"><i
+                                            class="material-icons md-18 text-success">remove_shopping_cart</i></a>
                                 </td>
                             {% else %}
                                 <td>
                                     <a href="{% url 'remove_cart' cart_item.product.id %}"><i
                                             class="material-icons md-18 text-success">remove_circle_outline</i></a>
-                                    <a href=""><i class="material-icons md-18 text-success">remove_shopping_cart</i></a>
+                                    <a href="{% url 'remove_product' cart_item.product.id %}"><i
+                                            class="material-icons md-18 text-success">remove_shopping_cart</i></a>
                                 </td>
                             {% endif %}
                         </tr>
