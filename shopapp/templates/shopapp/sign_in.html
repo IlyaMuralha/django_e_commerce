@@ -1,0 +1,46 @@
+{% extends 'shopapp/base.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+    <title>Sign in</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <br>
+        <h1 class="text-center text-uppercase fs-2 fw-normal lh-lg">
+            Login Account
+        </h1>
+        <div class="row">
+            <div class="col-12 col-sm-12 col-lg-6 text-center">
+                <br>
+                <h2 class="text-center text-uppercase fs-2 fw-normal lh-lg">
+                    Are you haven't account?
+                </h2>
+                <br>
+                <a href="{% url 'signup' %}" class="btn btn-secondary">Register</a>
+            </div>
+            <div class="col-12 col-md-12 col-sm-12 col-lg-6 bg-ligt">
+                <div>
+                    <br>
+                    <h2 class="text-center text-uppercase fs-2 fw-normal lh-lg">
+                        Register user only
+                    </h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        <p>{{ form|crispy }}</p>
+                        <button type="submit" class="btn btn-lg btn-block bg-dark text-white">
+                            Sign In
+                        </button>
+                    </form>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+    <br>
+
+{% endblock %}

@@ -2,6 +2,8 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product, Cart, CartItem
 from django.contrib.auth.models import Group, User
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
 from .forms import SignUpForm
 
 
@@ -99,4 +101,25 @@ def sing_up_view(request):
 
     return render(request, 'shopapp/sign_up.html', {'form': form})
 
+
+def sing_in_view(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+        username = request.POST['username']
+        password = request.POST['password']
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+        else:
+            return redirect('signup')
+    else:
+        form = AuthenticationForm()
+
+    return render(request, 'shopapp/sign_in.html', {'form': form})
+
+
+def sign_out_view(request):
+    logout(request)
+    return redirect('home')
 

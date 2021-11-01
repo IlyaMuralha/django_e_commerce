@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    <title>Ecommerce</title>
+    <title>Sign Up</title>
 {% endblock %}
 
 {% block content %}
@@ -36,12 +36,12 @@
                     congratulations
                 </h1>
                 <br>
-                <div>
-                    <p>
+                <div class="container">
+                    <p class="text-center">
                         Your account has been successfully created and ready to use!
                     </p>
                     <br>
-                    <a href="{% url 'home' %}">Go to the Shop</a>
+                    <a href="{% url 'home' %}" class="text-center">Go to the Shop</a>
                 </div>
             </div>
 

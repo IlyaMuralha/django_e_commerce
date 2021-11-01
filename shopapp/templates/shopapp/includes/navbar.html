@@ -20,13 +20,27 @@
             </li>
             <li class="nav-item"><a class="nav-link text-uppercase fw-bold px-3" href="">Contacts</a></li>
             <li class="nav-item"><a class="nav-link text-uppercase fw-bold px-3" href="">About</a></li>
+            {% if request.user.is_authenticated  and request.user.username %}
+                <li class="nav-item"><span class="nav-link text-uppercase fw-bold px-3"
+                >Welcome, {{ request.user.username }} <i
+                        class="material-icons md-18 text-success">account_circle</i></span></li>
+                <li class="nav-item"><a href="{% url 'signout' %}" class="nav-link text-uppercase fw-bold px-3"
+                ><i class="material-icons md-18 text-success">logout</i></a></li>
+            {% else %}
+                <li class="nav-item"><a href="{% url 'signin' %}" class="nav-link text-uppercase fw-bold px-3"
+                >Sign In<i
+                        class="material-icons md-18 text-success">login</i></a></li>
+                <li class="nav-item"><a href="{% url 'signup' %}" class="nav-link text-uppercase fw-bold px-3"
+                >Sign Up<i
+                        class="material-icons md-18 text-success">login</i></a></li>
+            {% endif %}
             {% if item_count > 0 %}
-            <li class="nav-item">
-                <a class="nav-link text-uppercase fw-bold px-3" href="{% url 'cart_detail' %}">
-                <i class="material-icons md-18 text-success">add_circle_outline</i>
-                    ({{ item_count }})
-                </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link text-uppercase fw-bold px-3" href="{% url 'cart_detail' %}">
+                        <i class="material-icons md-18 text-success">add_circle_outline</i>
+                        ({{ item_count }})
+                    </a>
+                </li>
             {% endif %}
         </ul>
         <form action="" class="form-inline">
